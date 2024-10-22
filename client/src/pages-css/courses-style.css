@@ -1,0 +1,171 @@
+/* accordion section */
+.accordion {
+    margin: 6vw auto;
+    width: 80%;
+}
+
+.accordion li{
+    background-color: var(--medium-blue);
+    list-style-type: none;
+    width: 100%;
+    margin: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.75);
+}
+
+.accordion label{
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 50px;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.accordion label::before {
+    content: "+";
+    margin-right: 10px;
+    padding-bottom: 3.5px;
+    font-size: 24px;
+    font-weight: 60px;
+}
+
+.accordion .content {
+    max-height: 0;
+    overflow: hidden;
+    color: var(--white);
+    padding: 0 10px;
+    line-height: 26px;
+    transition: max-height 1s ease, padding 1s ease;
+}
+
+.accordion input[type="radio"] {
+    display: none;
+}
+
+.accordion input[type="radio"]:checked + label + .content{
+    max-height: 1000px;
+    padding: 10px 10px 20px;
+}
+
+.accordion input[type="radio"]:checked + label::before{
+    content: '-';
+}
+
+.content p {
+    margin-bottom: 10px;
+}
+
+.card .card-image {
+    background: var(--light-blue);
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin: 10% 10%;
+}
+
+.card .card-image img {
+    width: 90%;
+    object-fit: cover;
+    /* margin: 10px 10px; */
+    /* border: 4px solid var(--dark-blue); */
+}
+
+.card-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.card-wrapper .material-symbols-rounded {
+    width: 5vw;
+    aspect-ratio: 1/1;
+    background-color: var(--dark-blue);
+    text-align: center;
+    line-height: 5vw;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    font-size: 2.5vw;
+    visibility: hidden;
+    z-index: 99;
+}
+
+.card-wrapper .material-symbols-rounded:first-child {
+    left: -1px;
+    user-select: none;
+}
+
+.card-wrapper .material-symbols-rounded:last-child {
+    right: -1px;
+    user-select: none;
+}
+
+.card-wrapper .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 4) - 12px);
+    gap: 10px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    padding: 0 25px 0;
+    /* justify-content: center; */
+    /* width: 90%; */
+}
+
+.carousel.dragging {
+    scroll-behavior: auto;
+}
+
+.carousel .card {
+    list-style: none;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: none;
+    width: 90%;
+    color: var(--black);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10% 10%;
+    margin: 10px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.carousel .card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02) translateZ(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backface-visibility: hidden;
+}
+
+.carousel:where(.card, .img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+
+    .card-wrapper .material-symbols-rounded {
+        visibility: visible;
+    }
+}
