@@ -1,3 +1,6 @@
+/* This accordion is inspired from
+https://youtu.be/fSkhTd4rpDo?si=-UZzZrRcyH6y7i80 */
+
 /* accordion section */
 .accordion {
     margin: 6vw auto;
@@ -19,8 +22,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: 50px;
+    font-size: 25px;
+    font-weight: 100px;
     cursor: pointer;
     color: var(--white);
 }
@@ -31,6 +34,11 @@
     padding-bottom: 3.5px;
     font-size: 24px;
     font-weight: 60px;
+}
+
+.accordion h3 {
+    font-weight: 50px;
+    font-size: 15px;
 }
 
 .accordion .content {
@@ -58,6 +66,9 @@
 .content p {
     margin-bottom: 10px;
 }
+
+/* The cards carousel is inspired from
+https://youtu.be/6QE8dXq9SOE?si=brk5O_fEPWsvvmjP */
 
 .card .card-image {
     background: var(--light-blue);

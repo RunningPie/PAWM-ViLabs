@@ -103,6 +103,7 @@ header nav ul li a:hover {
     transition: transform 0.2s ease-in-out;
 }
 
+
 .menu-btn {
     font-size: 15px;
     color: var(--white);
@@ -247,6 +248,9 @@ footer {
         padding: 0 20px;
     }
 
+    /* The hamburger menu using css is inspired from this youtube video
+    https://www.youtube.com/watch?v=oLgtucwjVII&ab_channel=CodingNepal; */
+    
     /* Menu button styling */
     .menu-btn {
         display: block;
