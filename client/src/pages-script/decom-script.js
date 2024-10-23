@@ -33,27 +33,34 @@ document.querySelectorAll('.task-item').forEach(item => {
     });
 });
 
-// Check categorization
+// Check categorization and enable Next Chapter button
 document.getElementById('check-order').addEventListener('click', function() {
     const feedback = document.getElementById('feedback');
+    const nextChapterBtn = document.getElementById('next-chapter');
     let isCorrect = true;
 
     document.querySelectorAll('.subgroup-container').forEach(container => {
         const category = container.id;
         const items = container.querySelectorAll('.task-item');
         
-        items.forEach(item => {
-            if (item.dataset.category !== category) {
-                isCorrect = false;
-            }
-        });
+        if (items.length > 0) {
+            items.forEach(item => {
+                if (item.dataset.category !== category) {
+                    isCorrect = false;
+                }
+            });
+        } else {
+            isCorrect = false;
+        }
     });
 
     if (isCorrect) {
         feedback.textContent = "Perfect! All tasks are in their correct categories! 🎉";
         feedback.style.color = 'green';
+        nextChapterBtn.disabled = false; // Enable the Next Chapter button
     } else {
         feedback.textContent = "Some tasks are in the wrong categories. Try again! 😊";
         feedback.style.color = 'red';
+        nextChapterBtn.disabled = true; // Keep the Next Chapter button disabled
     }
 });

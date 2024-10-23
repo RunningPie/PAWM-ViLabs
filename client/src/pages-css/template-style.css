@@ -3,12 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 :root {
-    --dark-blue: #2a4d69;
-    --medium-blue: #4b86b4;
-    --light-blue: #66a1d2;
+    --dark-blue: #2B4865;
+    --medium-blue: #256D85;
+    --light-blue: #8FE3CF;
+    --accent: #FF9B9B;
     --white: #fefefe;
     --gray: #cccccc;
     --black: #010101;
+    --bg-pattern: #f9f9f9;
 }
 
 * {

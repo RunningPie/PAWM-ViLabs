@@ -4,6 +4,7 @@ const observer = lozad(); // lazy loads elements with default selector as '.loza
 observer.observe();
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const images = document.querySelectorAll('.steps-grid .step img');
 
     if (images.length === 0) {
@@ -37,4 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
             image.src = originalSrc;
         });
     });
+
+    
 });

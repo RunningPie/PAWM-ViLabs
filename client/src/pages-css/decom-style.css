@@ -1,29 +1,156 @@
-.introduction-section {
-    padding: 20px;
-    background-color: var(--white);
-    margin: 20px 0 5px;
-}
-
-.introduction-section .img-container {
+.introduction-section, .exercise-section {
     display: flex;
-    justify-content: center;
-    margin: 10px 10px;
-}
-
-.introduction-section .img-container img {
-    max-height: 25vh;
-    transition: transform 0.2s ease-in-out;
-}
-
-.introduction-section .img-container img:hover {
-    transform: rotate(4deg);
-}
-
-
-.exercise-section {
-    padding: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px; /* Optional: add a max-width to prevent sections from becoming too wide */
+    padding: 20px 20px 10px;
     background-color: var(--white);
-    margin: 10px 0;
+    margin: 20px auto; /* Center horizontally */
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(86, 93, 100, 0.5);
+}
+
+.introduction-section h2, .exercise-section h2 {
+    color: var(--dark-blue);
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.introduction-section h2::after, .exercise-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--light-blue);
+    border-radius: 2px;
+}
+
+.exercise-section h3 {
+    color: var(--medium-blue);
+    font-size: 1.6em;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.exercise-section h3::before {
+    content: '👨‍🍳';
+    font-size: 1.2em;
+}
+
+.introduction-section h3 {
+    color: var(--medium-blue);
+    font-size: 1.6em;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.introduction-section p, .exercise-section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+}
+
+.img-container {
+    width: fit-content;
+    position: relative;
+    padding: 20px;
+    background: var(--light-blue);
+    border-radius: 15px;
+    margin: 30px 0;
+    transition: transform 0.3s ease;
+}
+
+.img-container:hover {
+    transform: translateY(-5px);
+}
+
+.img-container img {
+    border-radius: 10px;
+    height: 18vh;
+    aspect-ratio: 1/1;
+    display: block;
+    margin: 0 auto;
+}
+
+.example-container {
+    width: 85%;
+    margin: 30px auto;
+    border: 3px dashed var(--light-blue);
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.task-container {
+    width: 85%;
+    margin: 30px auto;
+    border: 3px dashed var(--light-blue);
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.task-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.example-item {
+    color: var(--white);
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: var(--medium-blue);
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-item {
+    color: var(--white);
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: var(--medium-blue);
+    border: none;
+    border-radius: 12px;
+    cursor: move;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-item::before {
+    content: '↕️';
+    font-size: 1.1em;
+}
+
+.task-item:hover {
+    background-color: var(--dark-blue);
+    transform: translateX(5px);
+}
+
+#feedback {
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
 .main-recipe-container {
@@ -82,17 +209,75 @@
     border-radius: 5px;
 }
 
-.check-button {
-    display: block;
+.btn {
+    display: inline-flex;
+    align-items: center;
     margin: 20px auto;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Adjust padding for better scaling */
     background-color: var(--medium-blue);
     color: white;
     border: none;
     border-radius: 5px;
+    font-size: 1.1rem; /* Adjust font size */
+    width: auto; /* Allow it to resize based on content */
+    max-width: 100%; /* Ensure it doesn’t overflow */
     cursor: pointer;
+    transition: all 0.3s ease;
+    justify-content: center;
+    /* text-align: center; */
 }
 
-.check-button:hover {
+.chapter-buttons {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.btn:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+    pointer-events: none; /* Prevent hover and click when disabled */
+}
+
+/* Hover effect for enabled button */
+.btn:hover:not(:disabled) {
     background-color: var(--dark-blue);
+}
+
+.btn span.material-symbols-rounded {
+    margin: 0 10px; /* Adjust spacing between text and chevron */
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease; /* Smooth animation */
+}
+
+.btn:hover:not(:disabled) span.material-symbols-rounded {
+    transform: translateX(5px); /* Move chevron to the right */
+}
+
+#prev-chapter {
+    visibility:hidden ;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .introduction-section,
+    .exercise-section {
+        padding: 30px 15px;
+    }
+    
+    .task-container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .task-item {
+        padding: 10px 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        width: 80%; /* Let it take full width on small screens */
+    }
 }

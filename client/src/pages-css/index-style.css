@@ -44,7 +44,7 @@
 
 .cta-buttons .btn {
     background-color: var(--light-blue);
-    color: var(--white);
+    color: var(--dark-blue);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -68,15 +68,22 @@
     text-align: center;
 }
 
-.steps h3 {
+.steps h2, .features-section h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
+.steps p, .features-section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
 .steps-grid {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 20px;
+    max-width: 100vw;
 }
 
 .steps-grid .step {
@@ -84,8 +91,8 @@
 }
 
 .steps-grid .step img {
-    width: auto;
-    height: 150px;
+    width: 100%;
+    height: auto;
     background-color: var(--gray);
 }
 
@@ -122,16 +129,6 @@
     text-align: center;
 }
 
-.features-section h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.features-section p {
-    font-size: 18px;
-    margin-bottom: 40px;
-}
-
 .features-grid {
     display: flex;
     justify-content: space-between;
@@ -143,8 +140,8 @@
 
 .features-grid .feature img {
     width: 100%;
-    height: 150px;
-    background-color: var(--gray);
+    height: auto;
+    /* background-color: var(--gray); */
 }
 
 .features-grid .feature h4 {
@@ -155,3 +152,57 @@
 .features-grid .feature p {
     font-size: 16px;
 }
+
+@media screen and (max-width: 425px) {
+    .hero-content h2, .cta-section h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .hero-content p, .cta-section p {
+        font-size: 10px;
+        margin-bottom: 15px;
+    }
+
+    .steps-grid .step h4 {
+        margin: 10px 0;
+        font-size: 12px;
+    }
+    
+    .steps-grid .step p {
+        font-size: 10px;
+    }
+    
+    .steps h2, .features-section h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .steps p, .features-section p {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    .cta-buttons .btn {
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+        padding: 5px 10px;
+        font-size: 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        display: inline-block;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .features-grid .feature h4 {
+        margin: 10px 0;
+        font-size: 12px;
+    }
+    
+    .features-grid .feature p {
+        font-size: 10px;
+    }
+    
+}
+

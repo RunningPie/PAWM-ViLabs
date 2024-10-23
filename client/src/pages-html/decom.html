@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="../../../assets/vicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <title>Virtual Labs - Chapter 1</title>
     <link rel="stylesheet" href="../pages-css/header-footer.css">
     <link rel="stylesheet" href="../pages-css/decom-style.css">
@@ -29,58 +31,72 @@
     </header>
 
     <!-- Introduction Section -->
-    <section class="introduction-section">
-        <div class="container">
-            <h2>Understanding Task Decomposition</h2>
-            <p>Task decomposition is the process of breaking down a complex task into smaller, more manageable components. By dividing a task into its individual steps, we can better understand each part of the process, organize them logically, and complete them more efficiently. This method is widely used in problem-solving, especially in programming, where each task can be tackled step by step. By approaching a problem in smaller chunks, you can focus on solving one part at a time, reducing complexity and increasing accuracy.</p>
-            <div class="img-container">
-                <img src="../../assets/ch1-img1.svg" alt="ch1-img1">
-            </div>
-            <p>In essence, task decomposition allows you to see the bigger picture while making sure that every small piece of the puzzle is in the right place.</p>
-            <br>
-            <h3>Story Time!</h3>
-            <p>Cooking is like solving a puzzle where timing and organization are everything 👩‍🍳. Imagine jumping into a complex recipe only to realize halfway through that you're missing a crucial ingredient or can't find your mixing bowl! Even experienced chefs know that success in the kitchen isn't just about following steps—it's about smart preparation.</p>
-            <p>That's where breaking down a recipe into clear parts comes in handy. Professional chefs call this "mise en place" (everything in its place), and it's the difference between kitchen chaos and cooking with confidence. Ready to turn this jumbled recipe into an organized plan? Let's sort these tasks into their proper places!</p>
-        </div>
-    </section>
+    <!-- Introduction Section -->
+<div class="introduction-section">
+    <h2>Understanding Task Decomposition</h2>
+    <p>Task decomposition is the process of breaking down a complex task into smaller, more manageable components. By dividing a task into its individual steps, we can better understand each part of the process, organize them logically, and complete them more efficiently.</p>
+    
+    <div class="img-container">
+        <img src="../../assets/ch1-img1.svg" alt="Task Decomposition Illustration">
+    </div>
+
+    <h3>Example of Task Decomposition: Planning a Picnic</h3>
+    <p>Let’s take a common task, like planning a picnic, and break it down into smaller tasks. Here's how task decomposition would work:</p>
+
+    <div class="example-container">
+        <div class="example-item" draggable="false">Pack food and drinks</div>
+        <div class="example-item" draggable="false">Get picnic basket and blanket</div>
+        <div class="example-item" draggable="false">Choose a location</div>
+        <div class="example-item" draggable="false">Invite friends</div>
+        <div class="example-item" draggable="false">Check the weather</div>
+    </div>
+
+    <p>As you can see, each of these steps contributes to the overall task of organizing a successful picnic. By breaking the task down into smaller parts, you ensure nothing is forgotten, and it becomes easier to manage each individual step!</p>
+</div>
+
 
 
     <!-- Drag-and-Drop Task Decomposition Exercise -->
     <div class="exercise-section">
-        <div class="container">
-            <h2>Task Decomposition: Making a Complex Recipe</h2>
-            <p>Organize these recipe steps into their appropriate categories by dragging them to the containers below.</p>
-            
-            <div class="main-recipe-container" id="main-recipe">
-                <div class="task-item" draggable="true" data-category="ingredients">Measure 2 cups of flour</div>
-                <div class="task-item" draggable="true" data-category="ingredients">Get 3 fresh eggs</div>
-                <div class="task-item" draggable="true" data-category="utensils">Prepare mixing bowl</div>
-                <div class="task-item" draggable="true" data-category="utensils">Get measuring cups</div>
-                <div class="task-item" draggable="true" data-category="steps">Mix dry ingredients</div>
-                <div class="task-item" draggable="true" data-category="steps">Preheat oven to 350°F</div>
-                <div class="task-item" draggable="true" data-category="ingredients">Get 1 cup of sugar</div>
-                <div class="task-item" draggable="true" data-category="utensils">Find baking pan</div>
-                <div class="task-item" draggable="true" data-category="steps">Beat eggs until fluffy</div>
-            </div>
-    
-            <div class="subgroup-containers">
-                <div class="subgroup-container" id="ingredients">
-                    <div class="subgroup-title">Gather Ingredients</div>
-                </div>
-                <div class="subgroup-container" id="utensils">
-                    <div class="subgroup-title">Prepare Utensils</div>
-                </div>
-                <div class="subgroup-container" id="steps">
-                    <div class="subgroup-title">Follow Steps</div>
-                </div>
-            </div>
-    
-            <button class="check-button" id="check-order">Check Categories</button>
-            <div class="feedback" id="feedback"></div>
+        <h2>Story Time!</h2>
+        <p>Cooking is like solving a puzzle where timing and organization are everything 👩‍🍳. Imagine jumping into a complex recipe only to realize halfway through that you're missing a crucial ingredient or can't find your mixing bowl! Even experienced chefs know that success in the kitchen isn't just about following steps—it's about smart preparation.</p>
+        <p>That's where breaking down a recipe into clear parts comes in handy. Professional chefs call this "mise en place" (everything in its place), and it's the difference between kitchen chaos and cooking with confidence. Ready to turn this jumbled recipe into an organized plan? Let's sort these tasks into their proper places!</p>
+        <br/>
+        <h3>Task Decomposition: Making a Complex Recipe</h3>
+        <p>Organize these recipe steps into their appropriate categories by dragging them to the containers below.</p>
+        
+        <div class="main-recipe-container" id="main-recipe">
+            <div class="task-item" draggable="true" data-category="ingredients">Measure 2 cups of flour</div>
+            <div class="task-item" draggable="true" data-category="ingredients">Get 3 fresh eggs</div>
+            <div class="task-item" draggable="true" data-category="utensils">Prepare mixing bowl</div>
+            <div class="task-item" draggable="true" data-category="utensils">Get measuring cups</div>
+            <div class="task-item" draggable="true" data-category="steps">Mix dry ingredients</div>
+            <div class="task-item" draggable="true" data-category="steps">Preheat oven to 350°F</div>
+            <div class="task-item" draggable="true" data-category="ingredients">Get 1 cup of sugar</div>
+            <div class="task-item" draggable="true" data-category="utensils">Find baking pan</div>
+            <div class="task-item" draggable="true" data-category="steps">Beat eggs until fluffy</div>
         </div>
+
+        <div class="subgroup-containers">
+            <div class="subgroup-container" id="ingredients">
+                <div class="subgroup-title">Gather Ingredients</div>
+            </div>
+            <div class="subgroup-container" id="utensils">
+                <div class="subgroup-title">Prepare Utensils</div>
+            </div>
+            <div class="subgroup-container" id="steps">
+                <div class="subgroup-title">Follow Steps</div>
+            </div>
+        </div>
+
+        <button class="btn" id="check-order">Check Categories</button>
+        <div class="feedback" id="feedback"></div>
     </div>
     
-
+    <div class="chapter-buttons">
+        <button class = "btn" id="prev-chapter" disabled><span id="left-btn" class="material-symbols-rounded">chevron_left</span>Previous Chapter</button>
+        <button class = "btn" id="next-chapter" disabled>Next Chapter<span id="right-btn" class="material-symbols-rounded">chevron_right</span></button>
+    </div>
 
 
     <!-- Footer Section -->
