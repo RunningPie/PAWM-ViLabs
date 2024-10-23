@@ -1,6 +1,5 @@
 /* Hero Section */
 .hero {
-    /* background-color: var(--medium-blue); */
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -92,6 +91,7 @@
 
 .steps-grid .step img {
     width: 100%;
+    max-width: 250px;
     height: auto;
     background-color: var(--gray);
 }
@@ -131,7 +131,7 @@
 
 .features-grid {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .features-grid .feature {
@@ -139,9 +139,16 @@
 }
 
 .features-grid .feature img {
+    margin: 10px 10px;
+    padding: 10px 10px;
     width: 100%;
     height: auto;
-    /* background-color: var(--gray); */
+    box-shadow: 2px 3px 6px rgba(1, 1, 1, 0.2);
+    transition: 0.2s ease-in-out;
+}
+
+.features-grid .feature img:hover {
+    transform: scale(1.05);
 }
 
 .features-grid .feature h4 {
@@ -153,14 +160,24 @@
     font-size: 16px;
 }
 
+
+/* Media query untuk responsivitas */
 @media screen and (max-width: 425px) {
+    .hero-content {
+        width: 50%;
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        text-align: left;
+    }
+
     .hero-content h2, .cta-section h2 {
-        font-size: 20px;
+        font-size: 30px;
         margin-bottom: 10px;
     }
     
     .hero-content p, .cta-section p {
-        font-size: 10px;
+        font-size: 15px;
         margin-bottom: 15px;
     }
 

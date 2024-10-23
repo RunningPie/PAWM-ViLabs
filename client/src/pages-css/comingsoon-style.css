@@ -4,6 +4,7 @@ main img {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 80%;
+    width: 100vw;
     object-fit: cover;
     overflow: hidden;
 }
@@ -15,9 +16,8 @@ main img {
       left: 50%;
       transform: translate(-50%, -50%);
       height: 50%;
-      width: 100%;
+      width: 100vw;
       object-fit: cover;
-      overflow: hidden; /* Hide overflow content from the image */
     }
     body {
         background-image: linear-gradient(to right, #3fb0d4, #1c78be);

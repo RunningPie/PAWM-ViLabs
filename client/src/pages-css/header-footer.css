@@ -10,7 +10,6 @@
     --white: #fefefe;
     --gray: #cccccc;
     --black: #010101;
-    /* --bg-pattern: #f9f9f9; */
 }
 
 * {
@@ -26,14 +25,13 @@ body {
     display: flex;
     flex-direction: column;
     line-height: 1.6;
-    background-color: var(--white)
+    background-color: var(--white);
 }
 
 /* Header */
 header {
     background-color: var(--dark-blue);
     color: var(--white);
-    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 99;
@@ -47,8 +45,7 @@ header .container {
     width: 90%;
     margin: 0 auto;
     padding: 10px 10px;
-    overflow: scroll;
-    scrollbar-width: none;
+    position: relative;
 }
 
 
@@ -61,9 +58,19 @@ header .logo h1 {
     font-size: 24px;
 }
 
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 header nav ul {
     display: flex;
+    justify-content: center;
+    align-items: center;
     list-style: none;
+    flex-wrap: nowrap;
+    text-align: center;
 }
 
 header nav ul li {
@@ -82,24 +89,36 @@ header nav ul li a:hover {
     transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-header .getstarted-btn {
+.getstarted-btn {
     background-color: var(--light-blue);
-    color: var(--dark-blue);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
 }
 
-header .getstarted-btn:hover {
-    color: var(--dark-blue);
+.getstarted-btn:hover {
     background-color: var(--light-blue);
     transform: scale(1.05);
     transition: transform 0.2s ease-in-out;
 }
 
+.menu-btn {
+    font-size: 15px;
+    color: var(--white);
+    margin-left: 40px;
+    line-height: 80px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+#check {
+    display: none;
+}
+
 /* Footer */
 footer {
-    margin-top: auto;
+    margin: auto 0 0;
     background-color: var(--dark-blue);
     color: var(--white);
     padding: 4vh 4vw;
@@ -154,13 +173,11 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 40%;
-    gap: 5vw;
     overflow-wrap: break-word;
 }
 
 .footer-links ul {
     list-style: none;
-    /* padding: ; */
 }
 
 .footer-links h4 {
@@ -188,9 +205,21 @@ footer {
 }
 
 @media screen and (max-width: 425px) {
-    
+
+    footer {
+        padding: 10px 20px;
+    }
+
     .footer-content {
+        padding: 5px 5px;
+    }
+    
+    .newsletter {
         display: none;
+    }
+
+    .footer-links {
+        width: 100%;
     }
 
     .footer-logo a {
@@ -199,7 +228,62 @@ footer {
         text-decoration: none;
     }
 
+    .footer-links ul li a {
+        font-size: 12px;
+        color: var(--white);
+        text-decoration: none;
+    }
+
+    .footer-links h4 {
+        font-size: 15px;
+        margin: 0 0 10px;
+    }
+
     .footer-legal {
         font-size: 10px;
+    }
+
+    header .container {
+        padding: 0 20px;
+    }
+
+    /* Menu button styling */
+    .menu-btn {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: var(--white);
+        z-index: 1000;
+        visibility: visible;
+    }
+
+    /* Navigation menu styling */
+    header nav ul {
+        position: fixed;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--dark-blue);
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+
+    /* When checkbox is checked, show the menu */
+    #check:checked ~ ul {
+        left: 0;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 20px 0;
+    }
+
+    header nav ul li a {
+        font-size: 20px;
     }
 }

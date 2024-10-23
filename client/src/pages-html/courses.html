@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
     <title>ViLabs - Courses</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../pages-css/header-footer.css">
     <link rel="stylesheet" href="../pages-css/courses-style.css">
     <script src="../pages-script/courses-script.js" defer></script>
@@ -21,16 +22,20 @@
                 </a>
             </div>
             <nav>
+                <input type="checkbox" id="check">
+                <!-- Correctly associate the label with the checkbox -->
+                <label for="check" class="menu-btn">
+                    <i class="fa fa-bars"></i>
+                </label>
                 <ul>
                     <li><a href="../../index.html">Home Page</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="#">Courses Offered</a></li>
+                    <li><a href="../pages-html/aboutus.html">About Us</a></li>
+                    <li><a href="../pages-html/courses.html">Courses Offered</a></li>
+                    <li><button onclick="location.href='../pages-html/courses.html'" type="button" class="getstarted-btn">Get Started</button></li>
                 </ul>
             </nav>
-            <a href="#" class="btn getstarted-btn">Get Started</a>
         </div>
     </header>
-
     <ul class="accordion">
         <li>
             <input type="radio" name="accordion" id="first-accordion" checked>
@@ -117,15 +122,15 @@
                     <div class="resources">
                         <h4>Resources</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <!-- <li><a href="#">Support</a></li> -->
+                            <li><a href="../pages-html/aboutus.html">About Us</a></li>
+                            <li><a href="../pages-html/courses.html">Courses</a></li>
                         </ul>
                     </div>
                     <div class="connect">
                         <h4>Stay Updated</h4>
                         <ul>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">YouTube</a></li>
+                            <li><a href="https://www.instagram.com">Instagram</a></li>
+                            <li><a href="https://www.youtube.com">YouTube</a></li>
                         </ul>
                     </div>
                 </div>

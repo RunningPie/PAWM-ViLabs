@@ -1,4 +1,5 @@
 let draggedTask = null;
+let touchOffset = { x: 0, y: 0 };
 
 // Initialize drag events for task items
 document.querySelectorAll('.task-item').forEach(item => {
@@ -11,9 +12,46 @@ document.querySelectorAll('.task-item').forEach(item => {
         this.style.opacity = '1';
         draggedTask = null;
     });
+
+    // Buat event perawalan drag di mobile
+    item.addEventListener('touchstart', function(e) {
+        draggedTask = this;
+        touchOffset.x = e.touches[0].clientX - this.getBoundingClientRect().left;
+        touchOffset.y = e.touches[0].clientY - this.getBoundingClientRect().top;
+        this.style.opacity = '0.5';
+
+        // Supaya ga ke-reselect
+        this.style.pointerEvents = 'none';
+    });
+
+    // Buat event pas geser jarinya
+    item.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    });
+
+    // Penanganan saat touch selesai maka ditaro dalam container
+    item.addEventListener('touchend', function(e) {
+        this.style.opacity = '1';
+        this.style.pointerEvents = '';
+        
+        let dropped = false;
+        
+        document.querySelectorAll('.subgroup-container, #main-recipe').forEach(container => {
+            const containerRect = container.getBoundingClientRect();
+            const touch = e.changedTouches[0];
+
+            // Mastiin dropnya di dalem container ato ga
+            if (touch.clientX >= containerRect.left && touch.clientX <= containerRect.right &&
+                touch.clientY >= containerRect.top && touch.clientY <= containerRect.bottom) {
+                container.appendChild(this);
+                dropped = true;
+            }
+        });
+        draggedTask = null;
+    });
 });
 
-// Initialize drop zones
+// Membuat zona drop tasksnya
 [document.getElementById('main-recipe'), ...document.querySelectorAll('.subgroup-container')].forEach(container => {
     container.addEventListener('dragover', function(e) {
         e.preventDefault();
@@ -33,7 +71,7 @@ document.querySelectorAll('.task-item').forEach(item => {
     });
 });
 
-// Check categorization and enable Next Chapter button
+// Buat ngecek terus nyalain next chapter
 document.getElementById('check-order').addEventListener('click', function() {
     const feedback = document.getElementById('feedback');
     const nextChapterBtn = document.getElementById('next-chapter');

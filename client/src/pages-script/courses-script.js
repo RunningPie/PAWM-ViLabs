@@ -6,6 +6,8 @@ let isDragging = false;
 let startX;
 let scrollLeft;
 
+
+// Fungsionalitas panah buat pencet scroll
 arrowBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         if (btn.id === "left-btn") {
@@ -17,7 +19,6 @@ arrowBtns.forEach(btn => {
 });
 
 
-// Function to start dragging
 const dragStart = (e) => {
     isDragging = true;
     startX = e.pageX - carousel.offsetLeft;
@@ -25,7 +26,6 @@ const dragStart = (e) => {
     carousel.classList.add("dragging");
 };
 
-// Function to handle dragging
 const dragging = (e) => {
     if (!isDragging) return;
     e.preventDefault();
@@ -34,14 +34,18 @@ const dragging = (e) => {
     carousel.scrollLeft = scrollLeft - walk;
 };
 
-// Function to stop dragging
 const dragStop = () => {
     isDragging = false;
     carousel.classList.remove("dragging");
 };
 
-// Event listeners
+// Buat desktop
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 carousel.addEventListener("mouseup", dragStop);
 carousel.addEventListener("mouseleave", dragStop);
+
+// Buat mobile
+carousel.addEventListener("touchstart", dragStart);
+carousel.addEventListener("touchmove", dragging);
+carousel.addEventListener("touchend", dragStop);
