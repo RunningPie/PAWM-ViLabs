@@ -101,7 +101,20 @@
     flex-wrap: wrap;
 }
 
-.task-item, .example-item {
+.example-item {
+    color: var(--white);
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: var(--medium-blue);
+    border: none;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-item {
     color: var(--white);
     padding: 12px 20px;
     margin: 8px 0;
