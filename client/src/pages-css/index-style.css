@@ -212,6 +212,20 @@
         transition: transform 0.2s ease-in-out;
     }
 
+    .features-grid {
+        display: block;
+    }
+
+    .features-grid .feature {
+        margin: 10px auto;
+        width: 90%;
+    }
+
+    .features-grid .feature img {
+        width: 90%;
+        padding: 0px 0px;
+    }
+
     .features-grid .feature h4 {
         margin: 10px 0;
         font-size: 12px;
