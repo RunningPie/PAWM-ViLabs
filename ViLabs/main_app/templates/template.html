@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata and stylesheets -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +10,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon/favicon-16x16.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <title>Virtual Labs</title>
+    {% block custom_css %}
+    {% endblock %}
+    <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/comingsoon-style.css' %}">
 </head>
 <body>
-    <!-- <script src="{% static 'js/comingsoon-script.js' %}"></script> -->
-    <!-- Semantic untuk header page -->
+    <!-- Header section -->
     <header>
         <div class="container">
             <div class="logo">
@@ -23,7 +24,7 @@
                     <h1>ViLabs</h1>
                 </a>
             </div>
-            <!-- Semantic untuk navbar -->
+            <!-- Navigation bar -->
             <nav>
                 <input type="checkbox" id="check">
                 <label for="check" class="menu-btn">
@@ -38,11 +39,12 @@
             </nav>
         </div>
     </header>
-    <main>
-        <img src="{% static 'img/coming_soon.svg' %}" alt="coming_soon">
-    </main>
 
-    <!-- Footer Section -->
+    <!-- Content area -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer section -->
     <footer>
         <div class="container">
             <div class="footer-logo">
@@ -51,6 +53,7 @@
                 </a>
             </div>
             <div class="footer-content">
+                <!-- Newsletter subscription form -->
                 <div class="newsletter">
                     <h4>Subscribe to our newsletter</h4>
                     <p>Stay updated with the latest features and updates.</p>
@@ -59,6 +62,7 @@
                         <button type="submit">Join</button>
                     </form>
                 </div>
+                <!-- Footer links -->
                 <div class="footer-links">
                     <div class="resources">
                         <h4>Resources</h4>
@@ -76,9 +80,13 @@
                     </div>
                 </div>
             </div>
+            <!-- Legal information -->
             <div class="footer-legal">
                 <p>&copy; 2024 ViLabs. All Rights Reserved. <a href="#">Terms of Service</a></p>
             </div>
         </div>
     </footer>
+    {% block custom_scripts %}
+    {% endblock %}
 </body>
+</html>

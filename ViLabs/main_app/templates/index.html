@@ -1,0 +1,79 @@
+{% extends "template.html" %}
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/index-style.css' %}">
+{% endblock %}
+{% block content %}
+    <!-- Semantic untuk section hero -->
+    <section class="hero animate__animated animate__fadeIn">
+        <div class="hero-content animate__animated animate__backInLeft">
+            <h2>Unlock Your Potential with Virtual Labs</h2>
+            <p>Dive into our interactive online virtual labs designed to enhance your computational thinking skills.</p>
+            <div class="cta-buttons">
+                <a href="/courses" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Semantic menandakan udah pindah ke section steps -->
+    <section class="steps animate__animated animate__fadeIn">
+        <!-- Animated Icons used in this section are from Flaticon.com -->
+        <div class="container">
+            <h2>Discover the Power of Virtual Labs</h2>
+            <p>Our interactive virtual labs provide an immersive learning experience.</p>
+            <div class="steps-grid">
+                <div class="step">
+                    <img src="{% static 'img/step-1-select.svg' %}" alt="Step 1">
+                    <h4>Step 1: Choose Your Lab</h4>
+                    <p>Select from a variety of engaging labs.</p>
+                </div>
+                <div class="step">
+                    <img src="{% static 'img/step-2-guide.svg' %}" alt="Step 2">
+                    <h4>Step 2: Follow Guided Instructions</h4>
+                    <p>Receive step-by-step instructions for each activity.</p>
+                </div>
+                <div class="step">
+                    <img src="{% static 'img/step-3-experiment.svg' %}" alt="Step 3">
+                    <h4>Step 3: Experiment and Learn</h4>
+                    <p>Engage in hands-on experiments to deepen your understanding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Unlimited Learning with Our Free Platform</h2>
+            <p>Hands-on virtual labs, designed to enhance your computational skills. All for free, forever!</p>
+            <div class="cta-buttons">
+                <a href="/courses" class="btn">Get Started</a>
+                <!-- <a href="#" class="btn secondary-btn">Learn More</a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>App Features</h2>
+            <p>Explore the unique features of our virtual labs platform.</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <img src="{% static 'img/interactive.gif' %}" alt="Feature Image" />
+                    <h4>Interactive Labs</h4>
+                    <p>Engage with immersive hands-on labs tailored for various skill levels.</p>
+                </div>
+
+                <div class="feature">
+                    <img src="{% static 'img/real-world.png' %}" alt="Feature Image" />
+                    <h4>Real-World Scenarios</h4>
+                    <p>Work on real-world problems that enhance your practical skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+    {% block custom_scripts %}
+    <script src="{% static 'js/index-script.js' %}"></script>
+    {% endblock %}

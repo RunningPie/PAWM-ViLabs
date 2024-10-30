@@ -1,44 +1,9 @@
+{% extends "template.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon/favicon-16x16.png' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <title>Virtual Labs</title>
-    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/courses-style.css' %}">
-</head>
-<body>
-    <script src="{% static 'js/courses-script.js' %}"></script>
-    <!-- Semantic untuk header page -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="/">
-                    <h1>ViLabs</h1>
-                </a>
-            </div>
-            <!-- Semantic untuk navbar -->
-            <nav>
-                <input type="checkbox" id="check">
-                <label for="check" class="menu-btn">
-                    <i class="fa fa-bars"></i>
-                </label>
-                <ul>
-                    <li><a href="/">Home Page</a></li>
-                    <li><a href="/aboutus">About Us</a></li>
-                    <li><a href="/courses">Courses Offered</a></li>
-                    <li><button onclick="location.href='/courses'" type="button" class="getstarted-btn">Get Started</button></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/courses-style.css' %}">
+{% endblock %}
+{% block content %}
     <ul class="accordion">
         <!-- Icons used in this accordion are obtained from Flaticon.com -->
         <li>
@@ -104,44 +69,7 @@
             </div>
         </li>
     </ul>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">
-                <a href="/">
-                    <h1>ViLabs</h1>
-                </a>
-            </div>
-            <div class="footer-content">
-                <div class="newsletter">
-                    <h4>Subscribe to our newsletter</h4>
-                    <p>Stay updated with the latest features and updates.</p>
-                    <form action="#">
-                        <input type="email" placeholder="Your email here" required>
-                        <button type="submit">Join</button>
-                    </form>
-                </div>
-                <div class="footer-links">
-                    <div class="resources">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="/aboutus">About Us</a></li>
-                            <li><a href="/courses">Courses</a></li>
-                        </ul>
-                    </div>
-                    <div class="connect">
-                        <h4>Stay Updated</h4>
-                        <ul>
-                            <li><a href="https://www.instagram.com">Instagram</a></li>
-                            <li><a href="https://www.youtube.com">YouTube</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-legal">
-                <p>&copy; 2024 ViLabs. All Rights Reserved. <a href="#">Terms of Service</a></p>
-            </div>
-        </div>
-    </footer>
-</body>
+    {% endblock %}
+    {% block custom_scripts %}
+    <script src="{% static 'js/index-script.js' %}"></script>
+    {% endblock %}

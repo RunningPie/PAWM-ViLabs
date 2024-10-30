@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% load static %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/comingsoon-style.css' %}">
+{% endblock %}
+{% block content %}
+    <main>
+        <img src="{% static 'img/coming_soon.svg' %}" alt="coming_soon">
+    </main>
+
+    {% endblock %}
+    {% block custom_scripts %}
+    <script src="{% static 'js/index-script.js' %}"></script>
+    {% endblock %}
