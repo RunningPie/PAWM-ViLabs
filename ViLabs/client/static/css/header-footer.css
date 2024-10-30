@@ -90,6 +90,7 @@ header nav ul li a:hover {
 }
 
 .getstarted-btn {
+    color: var(--dark-blue);
     background-color: var(--light-blue);
     padding: 10px 20px;
     text-decoration: none;

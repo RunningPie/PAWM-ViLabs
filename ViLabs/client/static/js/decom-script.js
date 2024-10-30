@@ -18,7 +18,7 @@ document.querySelectorAll('.task-item').forEach(item => {
         draggedTask = this;
         touchOffset.x = e.touches[0].clientX - this.getBoundingClientRect().left;
         touchOffset.y = e.touches[0].clientY - this.getBoundingClientRect().top;
-        this.style.opacity = '0.5';
+        setTimeout(() => this.style.opacity = '0.5', 0);
 
         // Supaya ga ke-reselect
         this.style.pointerEvents = 'none';
@@ -27,6 +27,7 @@ document.querySelectorAll('.task-item').forEach(item => {
     // Buat event pas geser jarinya
     item.addEventListener('touchmove', function(e) {
         e.preventDefault();
+        this.style.opacity = '0.5';
     });
 
     // Penanganan saat touch selesai maka ditaro dalam container

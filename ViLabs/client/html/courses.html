@@ -1,37 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
-    <title>ViLabs - Courses</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon/favicon-16x16.png' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../pages-css/header-footer.css">
-    <link rel="stylesheet" href="../pages-css/courses-style.css">
-    <script src="../pages-script/courses-script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Virtual Labs</title>
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/courses-style.css' %}">
 </head>
 <body>
+    <script src="{% static 'js/courses-script.js' %}"></script>
+    <!-- Semantic untuk header page -->
     <header>
         <div class="container">
             <div class="logo">
-                <a href="../../index.html">
+                <a href="/">
                     <h1>ViLabs</h1>
                 </a>
             </div>
+            <!-- Semantic untuk navbar -->
             <nav>
                 <input type="checkbox" id="check">
-                <!-- Correctly associate the label with the checkbox -->
                 <label for="check" class="menu-btn">
                     <i class="fa fa-bars"></i>
                 </label>
                 <ul>
-                    <li><a href="../../index.html">Home Page</a></li>
-                    <li><a href="../pages-html/aboutus.html">About Us</a></li>
-                    <li><a href="../pages-html/courses.html">Courses Offered</a></li>
-                    <li><button onclick="location.href='../pages-html/courses.html'" type="button" class="getstarted-btn">Get Started</button></li>
+                    <li><a href="/">Home Page</a></li>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a href="/courses">Courses Offered</a></li>
+                    <li><button onclick="location.href='/courses'" type="button" class="getstarted-btn">Get Started</button></li>
                 </ul>
             </nav>
         </div>
@@ -60,30 +63,30 @@
                     <div class="card-wrapper">
                         <span id="left-btn" class="material-symbols-rounded">chevron_left</span>
                         <ul class="carousel">
-                            <a href="decom.html" class="card" draggable="false">
+                            <a href="/decom" class="card" draggable="false">
                                 <div class="card-image">
-                                    <img src="../../assets/decomposition-3.svg" alt="decomposition-3" draggable="false">
+                                    <img src="{% static 'img/decomposition-3.svg' %}" alt="decomposition-3" draggable="false">
                                 </div>
                                 <h2>Chapter 1</h2>
                                 <span>Decomposition</span>
                             </a>
-                            <a href="../pages-html/comingsoon.html" class="card" draggable="false">
+                            <a href="/comingsoon" class="card" draggable="false">
                                 <div class="card-image">
-                                    <img src="../../assets/pattern-3.svg" alt="pattern" draggable="false">
+                                    <img src="{% static 'img/pattern-3.svg' %}" alt="pattern" draggable="false">
                                 </div>
                                 <h2>Chapter 2</h2>
                                 <span>Pattern Recognition</span>
                             </a>
-                            <a href="../pages-html/comingsoon.html" class="card" draggable="false">
+                            <a href="/comingsoon" class="card" draggable="false">
                                 <div class="card-image">
-                                    <img src="../../assets/abstraction-3.svg" alt="abstraction" draggable="false">
+                                    <img src="{% static 'img/abstraction-3.svg' %}" alt="abstraction" draggable="false">
                                 </div>
                                 <h2>Chapter 3</h2>
                                 <span>Abstraction</span>
                             </a>
-                            <a href="../pages-html/comingsoon.html" class="card" draggable="false">
+                            <a href="/comingsoon" class="card" draggable="false">
                                 <div class="card-image">
-                                    <img src="../../assets/algorithm.svg" alt="algorithm" draggable="false">
+                                    <img src="{% static 'img/algorithm.svg' %}" alt="algorithm" draggable="false">
                                 </div>
                                 <h2>Chapter 4</h2>
                                 <span>Algorithm</span>
@@ -106,7 +109,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <a href="../../index.html">
+                <a href="/">
                     <h1>ViLabs</h1>
                 </a>
             </div>
@@ -123,8 +126,8 @@
                     <div class="resources">
                         <h4>Resources</h4>
                         <ul>
-                            <li><a href="../pages-html/aboutus.html">About Us</a></li>
-                            <li><a href="../pages-html/courses.html">Courses</a></li>
+                            <li><a href="/aboutus">About Us</a></li>
+                            <li><a href="/courses">Courses</a></li>
                         </ul>
                     </div>
                     <div class="connect">

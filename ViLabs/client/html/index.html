@@ -1,24 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon/favicon-16x16.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Virtual Labs</title>
-    <link rel="stylesheet" href="./src/pages-css/header-footer.css">
-    <link rel="stylesheet" href="./src/pages-css/index-style.css">
+    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index-style.css' %}">
 </head>
 <body>
-    <script src="./src/pages-script/index-script.js"></script>
+    <script src="{% static 'js/index-script.js' %}"></script>
     <!-- Semantic untuk header page -->
     <header>
         <div class="container">
             <div class="logo">
-                <a href="#">
+                <a href="/">
                     <h1>ViLabs</h1>
                 </a>
             </div>
@@ -29,22 +30,23 @@
                     <i class="fa fa-bars"></i>
                 </label>
                 <ul>
-                    <li><a href="#">Home Page</a></li>
-                    <li><a href="./src/pages-html/aboutus.html">About Us</a></li>
-                    <li><a href="./src/pages-html/courses.html">Courses Offered</a></li>
-                    <li><button onclick="location.href='./src/pages-html/courses.html'" type="button" class="getstarted-btn">Get Started</button></li>
+                    <li><a href="/">Home Page</a></li>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a href="/courses">Courses Offered</a></li>
+                    <li><button onclick="location.href='/courses'" type="button" class="getstarted-btn">Get Started</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Semantic untuk section hero -->
+     <!-- <img src="{% static 'img/hero-banner.webp' %}" alt=""> -->
     <section class="hero animate__animated animate__fadeIn">
         <div class="hero-content animate__animated animate__backInLeft">
             <h2>Unlock Your Potential with Virtual Labs</h2>
             <p>Dive into our interactive online virtual labs designed to enhance your computational thinking skills.</p>
             <div class="cta-buttons">
-                <a href="./src/pages-html/courses.html" class="btn">Get Started</a>
+                <a href="/courses" class="btn">Get Started</a>
             </div>
         </div>
     </section>
@@ -57,17 +59,17 @@
             <p>Our interactive virtual labs provide an immersive learning experience.</p>
             <div class="steps-grid">
                 <div class="step">
-                    <img src="./assets/step-1-select.svg" alt="Step 1">
+                    <img src="{% static 'img/step-1-select.svg' %}" alt="Step 1">
                     <h4>Step 1: Choose Your Lab</h4>
                     <p>Select from a variety of engaging labs.</p>
                 </div>
                 <div class="step">
-                    <img src="./assets/step-2-guide.svg" alt="Step 2">
+                    <img src="{% static 'img/step-2-guide.svg' %}" alt="Step 2">
                     <h4>Step 2: Follow Guided Instructions</h4>
                     <p>Receive step-by-step instructions for each activity.</p>
                 </div>
                 <div class="step">
-                    <img src="./assets/step-3-experiment.svg" alt="Step 3">
+                    <img src="{% static 'img/step-3-experiment.svg' %}" alt="Step 3">
                     <h4>Step 3: Experiment and Learn</h4>
                     <p>Engage in hands-on experiments to deepen your understanding.</p>
                 </div>
@@ -81,7 +83,7 @@
             <h2>Unlimited Learning with Our Free Platform</h2>
             <p>Hands-on virtual labs, designed to enhance your computational skills. All for free, forever!</p>
             <div class="cta-buttons">
-                <a href="./src/pages-html/courses.html" class="btn">Get Started</a>
+                <a href="/courses" class="btn">Get Started</a>
                 <!-- <a href="#" class="btn secondary-btn">Learn More</a> -->
             </div>
         </div>
@@ -94,13 +96,13 @@
             <p>Explore the unique features of our virtual labs platform.</p>
             <div class="features-grid">
                 <div class="feature">
-                    <img src="./assets/interactive.gif" alt="Feature Image" />
+                    <img src="{% static 'img/interactive.gif' %}" alt="Feature Image" />
                     <h4>Interactive Labs</h4>
                     <p>Engage with immersive hands-on labs tailored for various skill levels.</p>
                 </div>
 
                 <div class="feature">
-                    <img src="./assets/real-world.png" alt="Feature Image" />
+                    <img src="{% static 'img/real-world.png' %}" alt="Feature Image" />
                     <h4>Real-World Scenarios</h4>
                     <p>Work on real-world problems that enhance your practical skills.</p>
                 </div>
@@ -112,7 +114,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <a href="#">
+                <a href="/">
                     <h1>ViLabs</h1>
                 </a>
             </div>
@@ -120,7 +122,7 @@
                 <div class="newsletter">
                     <h4>Subscribe to our newsletter</h4>
                     <p>Stay updated with the latest features and updates.</p>
-                    <form action="#">
+                    <form action="/">
                         <input type="email" placeholder="Your email here" required>
                         <button type="submit">Join</button>
                     </form>
@@ -129,8 +131,8 @@
                     <div class="resources">
                         <h4>Resources</h4>
                         <ul>
-                            <li><a href="./src/pages-html/aboutus.html">About Us</a></li>
-                            <li><a href="./src/pages-html/courses.html">Courses</a></li>
+                            <li><a href="/aboutus">About Us</a></li>
+                            <li><a href="/courses">Courses</a></li>
                         </ul>
                     </div>
                     <div class="connect">
