@@ -1,11 +1,37 @@
 {% extends "template.html" %}
 {% load static %}
+
 {% block custom_css %}
 <link rel="stylesheet" href="{% static 'css/login-style.css' %}">
 {% endblock %}
-{% block content %}
 
+{% block title %}
+Login
+{% endblock title %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-form">
+        <h1>Login</h1>
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            {% if next %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {% endif %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button class="login-button" type="submit">Login</button>
+            <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+        </form>
+    </div>
+</div>
 {% endblock %}
+
 {% block custom_scripts %}
 <script src="{% static 'js/login-script.js' %}"></script>
 {% endblock %}

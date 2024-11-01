@@ -3,6 +3,9 @@
 {% block custom_css %}
 <link rel="stylesheet" href="{% static 'css/index-style.css' %}">
 {% endblock %}
+{% block title %}
+Vilabs
+{% endblock title %}
 {% block content %}
     <!-- Semantic untuk section hero -->
     <section class="hero animate__animated animate__fadeIn">
@@ -47,7 +50,7 @@
             <h2>Unlimited Learning with Our Free Platform</h2>
             <p>Hands-on virtual labs, designed to enhance your computational skills. All for free, forever!</p>
             <div class="cta-buttons">
-                <a href="/courses" class="btn">Get Started</a>
+                <a href="/login" class="btn">Get Started</a>
                 <!-- <a href="#" class="btn secondary-btn">Learn More</a> -->
             </div>
         </div>

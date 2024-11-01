@@ -125,6 +125,12 @@ STATICFILES_DIRS = [
     # os.path.join(BASE_DIR, 'client/static')    
 ]
 
+# Redirect to login when user is not logged in
+LOGIN_URL = '/login'
+
+# Redirect to home page after login
+LOGIN_REDIRECT_URL = '/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

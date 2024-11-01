@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{%static 'img/favicon/favicon-16x16.png' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     {% block custom_css %}
     {% endblock %}
     <title>{% block title %}{% endblock title %}</title>
@@ -34,7 +35,20 @@
                     <li><a href="/">Home Page</a></li>
                     <li><a href="/aboutus">About Us</a></li>
                     <li><a href="/courses">Courses Offered</a></li>
-                    <li><button onclick="location.href='/courses'" type="button" class="getstarted-btn">Get Started</button></li>
+                    {% if logged_in %}
+                    <li><a href="/profile"><img class="profile-picture" src="" alt="profile_image"></a></li>
+                    <li>
+                        <button
+                            onclick="if (confirm('Are you sure you want to log out?')) { location.href='/logout'; }"
+                            type="button"
+                            class="getstarted-btn"
+                        >
+                            Logout
+                        </button>
+                    </li>
+                    {% else %}
+                    <li><button onclick="location.href='/login'" type="button" class="getstarted-btn">Get Started</button></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

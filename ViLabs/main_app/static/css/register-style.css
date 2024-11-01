@@ -1,20 +1,30 @@
-/* Center the container and give it some styling */
-.login-container {
-    display: flex;
+/* Center the container with form */
+.register-container {
+    margin: 20px auto;
     width: 100%;
     max-width: 400px;
     background-color: #ffffff;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    align-content: center;
-    margin: auto;
+    /* text-align: center; */
 }
 
-/* Input styles */
-input[type="text"],
-input[type="password"] {
+/* Header styling */
+h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Form field styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Individual input styles */
+input[type="text"], input[type="password"], input[type="email"], select {
     width: 100%;
     padding: 0.75rem;
     margin: 0.5rem 0;
@@ -24,10 +34,11 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
-/* Button styles */
-.login-button {
+/* Register button styling */
+button[type="submit"] {
     width: 100%;
     padding: 0.75rem;
+    margin-top: 1rem;
     background-color: var(--medium-blue);
     color: #ffffff;
     font-size: 1rem;
@@ -38,23 +49,20 @@ input[type="password"] {
     transition: background-color 0.3s;
 }
 
-.login-button:hover {
+button[type="submit"]:hover {
     background-color: var(--dark-blue);
 }
 
 /* Error message styling */
-.error-message {
-    background-color: #ffcccc;
+.errorlist {
+    background-color: #ffdddd;
     color: #d9534f;
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     border-radius: 5px;
-    text-align: center;
 }
 
-/* Sign-up link */
-p a {
-    color: var(--medium-blue);
-    text-decoration: none;
-    font-weight: bold;
-}
+/* Adjust non-field errors for better alignment */
+/* .error p {
+    margin: 0;
+} */

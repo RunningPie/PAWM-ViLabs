@@ -3,8 +3,18 @@
 {% block custom_css %}
 <link rel="stylesheet" href="{% static 'css/register-style.css' %}">
 {% endblock %}
+{% block title %}
+Register
+{% endblock title %}
 {% block content %}
-
+<div class="register-container">
+    <h2>Register</h2>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Register</button>
+    </form>
+</div>
 {% endblock %}
 {% block custom_scripts %}
 <script src="{% static 'js/register-script.js' %}"></script>
