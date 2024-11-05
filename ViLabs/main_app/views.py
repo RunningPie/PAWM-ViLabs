@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 from .forms import RegisterForm
+from .models import UserProgress
+import json
 
 def register_view(request):
     if request.method == 'POST':
@@ -67,7 +71,41 @@ def courses_view(request):
 
 @login_required
 def decom_view(request):
-    return render(request, 'decom.html', {'logged_in': True})
+    return render(request, 'decom.html', {'logged_in': True, 'user_id': request.user.id})
+
+@require_POST
+def save_progress(request):
+    data = json.loads(request.body)
+    exercise_id = data['exerciseId']
+    items = data['items']
+    completed = data['completed']
+    reset = data['reset']
+
+    progress, created = UserProgress.objects.update_or_create(
+        user=request.user,
+        exercise_id=exercise_id,
+        defaults={'progress': items, 'completed': completed, 'reset': reset}
+    )
+    return JsonResponse({'status': 'success'})
+@login_required
+def get_progress(request):
+    exercise_id = 'decomposition'
+    try:
+        # Get the user's progress for the specific exercise
+        user_progress = UserProgress.objects.get(user=request.user, exercise_id=exercise_id)
+        # Prepare the data to return as JSON
+        progress_data = {
+            "items": [
+                {"id": item["id"], "category": item["category"]}
+                for item in user_progress.progress
+            ],
+            "completed": user_progress.completed,
+            "reset": user_progress.reset
+        }
+        return JsonResponse(progress_data)
+    except UserProgress.DoesNotExist:
+        # Return empty progress if no record exists for the user
+        return JsonResponse({"items": [], "completed": False})
 
 def comingsoon_view(request):
     return render(request, 'comingsoon.html', {'logged_in': request.user.is_authenticated})

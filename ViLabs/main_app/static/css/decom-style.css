@@ -209,6 +209,7 @@
 }
 
 .btn {
+    margin: 10px 10px;
     display: inline-flex;
     align-items: center;
     padding: 12px 24px;
@@ -282,6 +283,7 @@
     }
 
     .btn {
+        margin: 10px 10px;
         padding: 10px 20px;
         font-size: 1rem;
         width: 80%;

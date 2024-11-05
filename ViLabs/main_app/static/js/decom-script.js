@@ -1,5 +1,55 @@
 let draggedTask = null;
 let touchOffset = { x: 0, y: 0 };
+const csrftoken = getCookie('csrftoken');
+
+const feedback = document.getElementById('feedback');
+const nextChapterBtn = document.getElementById('next-chapter');
+
+async function loadProgress() {
+    try {
+        const response = await fetch('/api/get_progress/', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            const progressData = await response.json();
+
+            // Restore items to their respective categories based on saved progress
+            progressData.items.forEach(item => {
+                const taskElement = document.getElementById(item.id);
+                const targetCategory = document.getElementById(item.category);
+                if (taskElement && targetCategory) {
+                    targetCategory.appendChild(taskElement);
+                }
+            });
+
+            if (!progressData.reset) {
+                if (progressData.completed) {
+                    feedback.textContent = "Perfect! All tasks are in their correct categories! 🎉";
+                    feedback.style.color = 'green';
+                    nextChapterBtn.disabled = false; // Enable the Next Chapter button
+                } else {
+                    feedback.textContent = "Some tasks are in the wrong categories. Try again! 😊";
+                    feedback.style.color = 'red';
+                    nextChapterBtn.disabled = true; // Keep the Next Chapter button disabled
+                }
+            } else {
+                feedback.textContent = "";
+                nextChapterBtn.disabled = true;
+            }
+
+        } else {
+            console.error('Failed to load progress:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error loading progress:', error);
+    }
+}
+
+// Call the function on page load
+window.addEventListener('DOMContentLoaded', loadProgress);
+
 
 // Initialize drag events for task items
 document.querySelectorAll('.task-item').forEach(item => {
@@ -74,8 +124,7 @@ document.querySelectorAll('.task-item').forEach(item => {
 
 // Buat ngecek terus nyalain next chapter
 document.getElementById('check-order').addEventListener('click', function() {
-    const feedback = document.getElementById('feedback');
-    const nextChapterBtn = document.getElementById('next-chapter');
+    
     let isCorrect = true;
 
     document.querySelectorAll('.subgroup-container').forEach(container => {
@@ -85,13 +134,14 @@ document.getElementById('check-order').addEventListener('click', function() {
         if (items.length > 0) {
             items.forEach(item => {
                 if (item.dataset.category !== category) {
+                    // console.log(`Task ${item.id} is in the wrong category.`);
                     isCorrect = false;
                 }
             });
-        } else {
-            isCorrect = false;
         }
     });
+
+    console.log(isCorrect);
 
     if (isCorrect) {
         feedback.textContent = "Perfect! All tasks are in their correct categories! 🎉";
@@ -102,4 +152,69 @@ document.getElementById('check-order').addEventListener('click', function() {
         feedback.style.color = 'red';
         nextChapterBtn.disabled = true; // Keep the Next Chapter button disabled
     }
+
+    saveProgress(isCorrect, false); // Save progress to the server
 });
+
+document.getElementById('reset-exercise').addEventListener('click', resetExercise);
+
+async function resetExercise() {
+    // Select the default container where tasks should be moved
+    const defaultContainer = document.getElementById('main-recipe');
+    
+    // Move all task items back to the default container
+    document.querySelectorAll('.task-item').forEach(item => {
+        defaultContainer.appendChild(item);
+    });
+
+    // Reset feedback message
+    feedback.textContent = "Exercise has been reset.";
+    feedback.style.color = 'black';
+
+    nextChapterBtn.disabled = true;
+
+    // Set a timeout to clear the feedback message after 3 seconds (3000 ms)
+    setTimeout(() => {
+        feedback.textContent = ""; // Clear the feedback message
+    }, 3000);
+
+    // Save reset progress (completed status is false)
+    await saveProgress(false, true);
+}
+
+
+
+async function saveProgress(completed_status, reset_status) {
+    const progressData = {
+        exerciseId: 'decomposition',
+        items: [...document.querySelectorAll('.task-item')].map(item => ({
+            id: item.id,
+            category: item.closest('.subgroup-container')?.id || 'main-recipe'
+        })),
+        completed: completed_status,
+        reset: reset_status
+    };
+    await fetch('/api/save_progress/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken
+         },
+        body: JSON.stringify(progressData)
+    });
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}

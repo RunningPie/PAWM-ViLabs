@@ -11,4 +11,6 @@ urlpatterns = [
     path('courses/', views.courses_view, name='courses'),
     path('decom/', views.decom_view, name='decom'),
     path('comingsoon/', views.comingsoon_view, name='comingsoon'),
+    path('api/save_progress/', views.save_progress, name='save_progress'),
+    path('api/get_progress/', views.get_progress, name='get_progress')
 ]
