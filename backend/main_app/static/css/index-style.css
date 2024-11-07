@@ -96,7 +96,7 @@
     background-color: var(--gray);
 }
 
-.steps-grid .step h4 {
+.steps-grid .step h3 {
     margin: 10px 0;
     font-size: 20px;
 }
@@ -151,7 +151,7 @@
     transform: scale(1.05);
 }
 
-.features-grid .feature h4 {
+.features-grid .feature h3 {
     margin: 10px 0;
     font-size: 20px;
 }
@@ -181,7 +181,7 @@
         margin-bottom: 15px;
     }
 
-    .steps-grid .step h4 {
+    .steps-grid .step h3 {
         margin: 10px 0;
         font-size: 12px;
     }
@@ -226,7 +226,7 @@
         padding: 0px 0px;
     }
 
-    .features-grid .feature h4 {
+    .features-grid .feature h3 {
         margin: 10px 0;
         font-size: 12px;
     }

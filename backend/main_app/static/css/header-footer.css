@@ -149,7 +149,7 @@ footer {
     overflow-wrap: break-word;
 }
 
-.newsletter h4 {
+.newsletter h2 {
     font-size: 20px;
 }
 
@@ -192,7 +192,7 @@ footer {
     list-style: none;
 }
 
-.footer-links h4 {
+.footer-links h2 {
     font-size: 20px;
     margin: 0 0 15px;
 }
@@ -246,7 +246,7 @@ footer {
         text-decoration: none;
     }
 
-    .footer-links h4 {
+    .footer-links h2 {
         font-size: 15px;
         margin: 0 0 10px;
     }

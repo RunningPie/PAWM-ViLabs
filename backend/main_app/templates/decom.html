@@ -75,7 +75,7 @@ Course - Decomposition
         <button class = "btn" id="prev-chapter" disabled><span id="left-btn" class="material-symbols-rounded">chevron_left</span>Previous Chapter</button>
         <button class = "btn" id="next-chapter" onclick= "location.href='/comingsoon'" disabled>Next Chapter<span id="right-btn" class="material-symbols-rounded">chevron_right</span></button>
     </div>
-    {% endblock %}
-    {% block custom_scripts %}
-    <script src="{% static 'js/decom-script.js' %}"></script>
-    {% endblock %}
+{% endblock %}
+{% block custom_scripts %}
+<script src="{% static 'js/decom-script.js' %}"></script>
+{% endblock %}
